@@ -88,6 +88,17 @@ type TranslationKeys = {
   submitReview: string;
   chatbotCTA: string;
   chatbotTooltip: string;
+
+  // Hero
+  heroTitle: string;
+  heroSubtitle: string;
+  heroPlaceholder: string;
+  heroWelcome: string;
+  quickCalcIndemnites: string;
+  quickDelaisRecherche: string;
+  quickFormation: string;
+  quickContester: string;
+  legalDisclaimer: string;
 };
 
 export const translations: Record<Language, TranslationKeys> = {
