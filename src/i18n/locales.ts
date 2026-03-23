@@ -356,6 +356,8 @@ export const translations: Record<Language, TranslationKeys> = {
     yourRating: "Your rating",
     yourComment: "Your comment",
     submitReview: "Submit",
+    chatbotCTA: "Need help?",
+    chatbotTooltip: "Ask your questions about the PES here!",
   },
   pt: {
     dashboardTitle: "Painel do Candidato a Emprego",
