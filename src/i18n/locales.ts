@@ -147,6 +147,12 @@ export const translations: Record<Language, TranslationKeys> = {
     sourceORP: "ORP",
     sourceSECO: "SECO",
     sourceCanton: "Canton",
+    reviewsTitle: "Avis & Témoignages",
+    leaveReview: "Laisser un avis",
+    yourName: "Votre nom",
+    yourRating: "Votre note",
+    yourComment: "Votre commentaire",
+    submitReview: "Envoyer",
   },
   de: {
     dashboardTitle: "Dashboard für Stellensuchende",
