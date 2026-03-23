@@ -1,5 +1,6 @@
 import { useLanguage } from "@/i18n/useLanguage";
 import LanguageSwitcher from "@/components/LanguageSwitcher";
+import DarkModeToggle from "@/components/DarkModeToggle";
 import PillarCard from "@/components/PillarCard";
 import NewsFeed from "@/components/NewsFeed";
 import ChatBot from "@/components/ChatBot";
