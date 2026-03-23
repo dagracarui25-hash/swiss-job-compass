@@ -222,6 +222,8 @@ export const translations: Record<Language, TranslationKeys> = {
     yourRating: "Ihre Bewertung",
     yourComment: "Ihr Kommentar",
     submitReview: "Absenden",
+    chatbotCTA: "Brauchen Sie Hilfe?",
+    chatbotTooltip: "Stellen Sie hier Ihre Fragen zum RAV!",
   },
   it: {
     dashboardTitle: "Dashboard per chi cerca lavoro",
