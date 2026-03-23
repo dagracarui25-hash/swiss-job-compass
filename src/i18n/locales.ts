@@ -277,6 +277,12 @@ export const translations: Record<Language, TranslationKeys> = {
     sourceORP: "URC",
     sourceSECO: "SECO",
     sourceCanton: "Cantone",
+    reviewsTitle: "Recensioni & Testimonianze",
+    leaveReview: "Lascia una recensione",
+    yourName: "Il tuo nome",
+    yourRating: "La tua valutazione",
+    yourComment: "Il tuo commento",
+    submitReview: "Invia",
   },
   en: {
     dashboardTitle: "Job Seeker Dashboard",
