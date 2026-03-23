@@ -624,5 +624,7 @@ export const translations: Record<Language, TranslationKeys> = {
     yourRating: "تقييمك",
     yourComment: "تعليقك",
     submitReview: "إرسال",
+    chatbotCTA: "هل تحتاج مساعدة؟",
+    chatbotTooltip: "!اطرح أسئلتك حول مكتب العمل هنا",
   },
 };
