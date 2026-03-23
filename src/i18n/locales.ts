@@ -423,6 +423,8 @@ export const translations: Record<Language, TranslationKeys> = {
     yourRating: "Sua nota",
     yourComment: "Seu comentário",
     submitReview: "Enviar",
+    chatbotCTA: "Precisa de ajuda?",
+    chatbotTooltip: "Faça suas perguntas sobre o ORP aqui!",
   },
   es: {
     dashboardTitle: "Panel del Buscador de Empleo",
