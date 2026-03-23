@@ -407,6 +407,12 @@ export const translations: Record<Language, TranslationKeys> = {
     sourceORP: "ORP",
     sourceSECO: "SECO",
     sourceCanton: "Cantão",
+    reviewsTitle: "Avaliações & Testemunhos",
+    leaveReview: "Deixar uma avaliação",
+    yourName: "Seu nome",
+    yourRating: "Sua nota",
+    yourComment: "Seu comentário",
+    submitReview: "Enviar",
   },
   es: {
     dashboardTitle: "Panel del Buscador de Empleo",
