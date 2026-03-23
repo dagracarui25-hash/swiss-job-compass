@@ -212,6 +212,12 @@ export const translations: Record<Language, TranslationKeys> = {
     sourceORP: "RAV",
     sourceSECO: "SECO",
     sourceCanton: "Kanton",
+    reviewsTitle: "Bewertungen & Erfahrungsberichte",
+    leaveReview: "Bewertung abgeben",
+    yourName: "Ihr Name",
+    yourRating: "Ihre Bewertung",
+    yourComment: "Ihr Kommentar",
+    submitReview: "Absenden",
   },
   it: {
     dashboardTitle: "Dashboard per chi cerca lavoro",
