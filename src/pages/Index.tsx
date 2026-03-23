@@ -37,7 +37,10 @@ const Index = () => {
             <h1 className="text-xl font-bold text-foreground sm:text-2xl">{t("dashboardTitle")}</h1>
             <p className="text-sm text-muted-foreground mt-0.5">{t("dashboardSubtitle")}</p>
           </div>
-          <LanguageSwitcher />
+          <div className="flex items-center gap-2">
+            <DarkModeToggle />
+            <LanguageSwitcher />
+          </div>
         </div>
       </header>
 
