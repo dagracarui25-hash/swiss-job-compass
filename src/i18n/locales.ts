@@ -51,6 +51,10 @@ type TranslationKeys = {
   housingAid: string;
   hospiceGeneral: string;
   csrVaud: string;
+  sozialdienstBern: string;
+  sozialdienstZurich: string;
+  sozialdienstBasel: string;
+  sozialdienstTicino: string;
 
   // Chatbot
   chatbotTitle: string;
@@ -101,6 +105,10 @@ export const translations: Record<Language, TranslationKeys> = {
     housingAid: "Aide au logement",
     hospiceGeneral: "Hospice Général (GE)",
     csrVaud: "CSR (Vaud)",
+    sozialdienstBern: "Sozialdienst (Berne)",
+    sozialdienstZurich: "Sozialdienst (Zurich)",
+    sozialdienstBasel: "Sozialhilfe (Bâle)",
+    sozialdienstTicino: "Servizio sociale (Tessin)",
 
     chatbotTitle: "Assistant virtuel",
     orpAdvisor: "Conseiller ORP",
@@ -147,6 +155,10 @@ export const translations: Record<Language, TranslationKeys> = {
     housingAid: "Wohnhilfe",
     hospiceGeneral: "Hospice Général (GE)",
     csrVaud: "CSR (Waadt)",
+    sozialdienstBern: "Sozialdienst (Bern)",
+    sozialdienstZurich: "Sozialdienst (Zürich)",
+    sozialdienstBasel: "Sozialhilfe (Basel)",
+    sozialdienstTicino: "Sozialdienst (Tessin)",
 
     chatbotTitle: "Virtueller Assistent",
     orpAdvisor: "RAV-Berater",
@@ -193,6 +205,10 @@ export const translations: Record<Language, TranslationKeys> = {
     housingAid: "Aiuto alloggio",
     hospiceGeneral: "Hospice Général (GE)",
     csrVaud: "CSR (Vaud)",
+    sozialdienstBern: "Servizio sociale (Berna)",
+    sozialdienstZurich: "Servizio sociale (Zurigo)",
+    sozialdienstBasel: "Assistenza sociale (Basilea)",
+    sozialdienstTicino: "Servizio sociale (Ticino)",
 
     chatbotTitle: "Assistente virtuale",
     orpAdvisor: "Consulente URC",
@@ -239,6 +255,10 @@ export const translations: Record<Language, TranslationKeys> = {
     housingAid: "Housing aid",
     hospiceGeneral: "Hospice Général (GE)",
     csrVaud: "CSR (Vaud)",
+    sozialdienstBern: "Social Services (Bern)",
+    sozialdienstZurich: "Social Services (Zürich)",
+    sozialdienstBasel: "Social Services (Basel)",
+    sozialdienstTicino: "Social Services (Ticino)",
 
     chatbotTitle: "Virtual Assistant",
     orpAdvisor: "ORP Advisor",
@@ -285,6 +305,10 @@ export const translations: Record<Language, TranslationKeys> = {
     housingAid: "Ajuda habitacional",
     hospiceGeneral: "Hospice Général (GE)",
     csrVaud: "CSR (Vaud)",
+    sozialdienstBern: "Serviços sociais (Berna)",
+    sozialdienstZurich: "Serviços sociais (Zurique)",
+    sozialdienstBasel: "Serviços sociais (Basileia)",
+    sozialdienstTicino: "Serviços sociais (Ticino)",
 
     chatbotTitle: "Assistente Virtual",
     orpAdvisor: "Conselheiro ORP",
@@ -331,6 +355,10 @@ export const translations: Record<Language, TranslationKeys> = {
     housingAid: "Ayuda para vivienda",
     hospiceGeneral: "Hospice Général (GE)",
     csrVaud: "CSR (Vaud)",
+    sozialdienstBern: "Servicios sociales (Berna)",
+    sozialdienstZurich: "Servicios sociales (Zúrich)",
+    sozialdienstBasel: "Servicios sociales (Basilea)",
+    sozialdienstTicino: "Servicios sociales (Tesino)",
 
     chatbotTitle: "Asistente Virtual",
     orpAdvisor: "Consejero ORP",
@@ -377,6 +405,10 @@ export const translations: Record<Language, TranslationKeys> = {
     housingAid: "Ndihma për strehim",
     hospiceGeneral: "Hospice Général (GE)",
     csrVaud: "CSR (Vaud)",
+    sozialdienstBern: "Shërbimet sociale (Bernë)",
+    sozialdienstZurich: "Shërbimet sociale (Cyrih)",
+    sozialdienstBasel: "Shërbimet sociale (Bazel)",
+    sozialdienstTicino: "Shërbimet sociale (Tiçino)",
 
     chatbotTitle: "Asistenti Virtual",
     orpAdvisor: "Këshilltar ORP",
@@ -423,6 +455,10 @@ export const translations: Record<Language, TranslationKeys> = {
     housingAid: "المساعدة في السكن",
     hospiceGeneral: "Hospice Général (جنيف)",
     csrVaud: "CSR (فو)",
+    sozialdienstBern: "الخدمات الاجتماعية (برن)",
+    sozialdienstZurich: "الخدمات الاجتماعية (زيورخ)",
+    sozialdienstBasel: "الخدمات الاجتماعية (بازل)",
+    sozialdienstTicino: "الخدمات الاجتماعية (تيتشينو)",
 
     chatbotTitle: "المساعد الافتراضي",
     orpAdvisor: "مستشار ORP",
