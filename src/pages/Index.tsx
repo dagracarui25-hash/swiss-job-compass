@@ -1,11 +1,13 @@
 import { useLanguage } from "@/i18n/useLanguage";
+import { Link } from "react-router-dom";
 import LanguageSwitcher from "@/components/LanguageSwitcher";
 import DarkModeToggle from "@/components/DarkModeToggle";
 import PillarCard from "@/components/PillarCard";
 import NewsFeed from "@/components/NewsFeed";
 import ChatBot from "@/components/ChatBot";
+import ReviewsSection from "@/components/ReviewsSection";
 import { links } from "@/data/links";
-import { Building2, Briefcase, Heart, Newspaper, ExternalLink } from "lucide-react";
+import { Building2, Briefcase, Heart, Newspaper, ExternalLink, Settings } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const LinkButton = ({ nameKey, url }: { nameKey: string; url: string }) => {
@@ -38,6 +40,11 @@ const Index = () => {
             <p className="text-sm text-muted-foreground mt-0.5">{t("dashboardSubtitle")}</p>
           </div>
           <div className="flex items-center gap-2">
+            <Link to="/admin">
+              <Button variant="ghost" size="icon" className="text-muted-foreground" aria-label="Admin">
+                <Settings className="h-5 w-5" />
+              </Button>
+            </Link>
             <DarkModeToggle />
             <LanguageSwitcher />
           </div>
@@ -120,6 +127,9 @@ const Index = () => {
 
         {/* News Feed */}
         <NewsFeed />
+
+        {/* Reviews */}
+        <ReviewsSection />
       </main>
 
       {/* Chatbot */}

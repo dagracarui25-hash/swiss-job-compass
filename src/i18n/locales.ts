@@ -78,6 +78,14 @@ type TranslationKeys = {
   sourceORP: string;
   sourceSECO: string;
   sourceCanton: string;
+
+  // Reviews
+  reviewsTitle: string;
+  leaveReview: string;
+  yourName: string;
+  yourRating: string;
+  yourComment: string;
+  submitReview: string;
 };
 
 export const translations: Record<Language, TranslationKeys> = {
@@ -139,6 +147,12 @@ export const translations: Record<Language, TranslationKeys> = {
     sourceORP: "ORP",
     sourceSECO: "SECO",
     sourceCanton: "Canton",
+    reviewsTitle: "Avis & Témoignages",
+    leaveReview: "Laisser un avis",
+    yourName: "Votre nom",
+    yourRating: "Votre note",
+    yourComment: "Votre commentaire",
+    submitReview: "Envoyer",
   },
   de: {
     dashboardTitle: "Dashboard für Stellensuchende",
@@ -198,6 +212,12 @@ export const translations: Record<Language, TranslationKeys> = {
     sourceORP: "RAV",
     sourceSECO: "SECO",
     sourceCanton: "Kanton",
+    reviewsTitle: "Bewertungen & Erfahrungsberichte",
+    leaveReview: "Bewertung abgeben",
+    yourName: "Ihr Name",
+    yourRating: "Ihre Bewertung",
+    yourComment: "Ihr Kommentar",
+    submitReview: "Absenden",
   },
   it: {
     dashboardTitle: "Dashboard per chi cerca lavoro",
@@ -257,6 +277,12 @@ export const translations: Record<Language, TranslationKeys> = {
     sourceORP: "URC",
     sourceSECO: "SECO",
     sourceCanton: "Cantone",
+    reviewsTitle: "Recensioni & Testimonianze",
+    leaveReview: "Lascia una recensione",
+    yourName: "Il tuo nome",
+    yourRating: "La tua valutazione",
+    yourComment: "Il tuo commento",
+    submitReview: "Invia",
   },
   en: {
     dashboardTitle: "Job Seeker Dashboard",
@@ -316,6 +342,12 @@ export const translations: Record<Language, TranslationKeys> = {
     sourceORP: "ORP",
     sourceSECO: "SECO",
     sourceCanton: "Canton",
+    reviewsTitle: "Reviews & Testimonials",
+    leaveReview: "Leave a review",
+    yourName: "Your name",
+    yourRating: "Your rating",
+    yourComment: "Your comment",
+    submitReview: "Submit",
   },
   pt: {
     dashboardTitle: "Painel do Candidato a Emprego",
@@ -375,6 +407,12 @@ export const translations: Record<Language, TranslationKeys> = {
     sourceORP: "ORP",
     sourceSECO: "SECO",
     sourceCanton: "Cantão",
+    reviewsTitle: "Avaliações & Testemunhos",
+    leaveReview: "Deixar uma avaliação",
+    yourName: "Seu nome",
+    yourRating: "Sua nota",
+    yourComment: "Seu comentário",
+    submitReview: "Enviar",
   },
   es: {
     dashboardTitle: "Panel del Buscador de Empleo",
@@ -434,6 +472,12 @@ export const translations: Record<Language, TranslationKeys> = {
     sourceORP: "ORP",
     sourceSECO: "SECO",
     sourceCanton: "Cantón",
+    reviewsTitle: "Opiniones & Testimonios",
+    leaveReview: "Dejar una opinión",
+    yourName: "Su nombre",
+    yourRating: "Su calificación",
+    yourComment: "Su comentario",
+    submitReview: "Enviar",
   },
   sq: {
     dashboardTitle: "Paneli i Kërkuesit të Punës",
@@ -493,6 +537,12 @@ export const translations: Record<Language, TranslationKeys> = {
     sourceORP: "ORP",
     sourceSECO: "SECO",
     sourceCanton: "Kantoni",
+    reviewsTitle: "Vlerësime & Dëshmi",
+    leaveReview: "Lini një vlerësim",
+    yourName: "Emri juaj",
+    yourRating: "Vlerësimi juaj",
+    yourComment: "Komenti juaj",
+    submitReview: "Dërgo",
   },
   ar: {
     dashboardTitle: "لوحة تحكم الباحث عن عمل",
@@ -552,5 +602,11 @@ export const translations: Record<Language, TranslationKeys> = {
     sourceORP: "ORP",
     sourceSECO: "SECO",
     sourceCanton: "الكانتون",
+    reviewsTitle: "التقييمات والشهادات",
+    leaveReview: "اترك تقييماً",
+    yourName: "اسمك",
+    yourRating: "تقييمك",
+    yourComment: "تعليقك",
+    submitReview: "إرسال",
   },
 };
