@@ -64,6 +64,15 @@ type TranslationKeys = {
   orpWelcome: string;
   benefitsWelcome: string;
   socialWelcome: string;
+  chooseAdvisor: string;
+  changeAdvisor: string;
+  typing: string;
+  quickActionDeadlines: string;
+  quickActionCV: string;
+  quickActionGain: string;
+  orpDesc: string;
+  benefitsDesc: string;
+  socialAssistantDesc: string;
 
   // News
   sourceORP: string;
@@ -117,6 +126,15 @@ export const translations: Record<Language, TranslationKeys> = {
     orpWelcome: "Bonjour ! Je suis votre conseiller ORP. Je peux vous aider avec la LACI, vos obligations et vos quotas de recherche.",
     benefitsWelcome: "Bonjour ! Je suis votre conseiller Caisse. Je peux vous aider avec les indemnités, le gain intermédiaire et les délais.",
     socialWelcome: "Bonjour ! Je suis votre assistant social. Je peux vous aider avec les démarches d'aide sociale.",
+    chooseAdvisor: "Choisissez votre conseiller",
+    changeAdvisor: "Changer de conseiller",
+    typing: "En train d'écrire...",
+    quickActionDeadlines: "Quels sont mes délais ce mois ?",
+    quickActionCV: "Aidez-moi pour mon CV",
+    quickActionGain: "Comment déclarer un gain intermédiaire ?",
+    orpDesc: "LACI, obligations, quotas de recherche",
+    benefitsDesc: "Indemnités, gain intermédiaire, délais",
+    socialAssistantDesc: "Démarches d'aide sociale",
 
     sourceORP: "ORP",
     sourceSECO: "SECO",
@@ -167,6 +185,15 @@ export const translations: Record<Language, TranslationKeys> = {
     orpWelcome: "Guten Tag! Ich bin Ihr RAV-Berater. Ich kann Ihnen bei AVIG, Pflichten und Suchquoten helfen.",
     benefitsWelcome: "Guten Tag! Ich bin Ihr Kassenberater. Ich kann Ihnen bei Entschädigungen, Zwischenverdienst und Fristen helfen.",
     socialWelcome: "Guten Tag! Ich bin Ihr Sozialassistent. Ich kann Ihnen bei Sozialhilfeverfahren helfen.",
+    chooseAdvisor: "Wählen Sie Ihren Berater",
+    changeAdvisor: "Berater wechseln",
+    typing: "Schreibt...",
+    quickActionDeadlines: "Welche Fristen habe ich diesen Monat?",
+    quickActionCV: "Helfen Sie mir mit meinem Lebenslauf",
+    quickActionGain: "Wie melde ich einen Zwischenverdienst?",
+    orpDesc: "AVIG, Pflichten, Suchquoten",
+    benefitsDesc: "Entschädigungen, Zwischenverdienst, Fristen",
+    socialAssistantDesc: "Sozialhilfeverfahren",
 
     sourceORP: "RAV",
     sourceSECO: "SECO",
@@ -217,6 +244,15 @@ export const translations: Record<Language, TranslationKeys> = {
     orpWelcome: "Buongiorno! Sono il vostro consulente URC. Posso aiutarvi con la LADI, gli obblighi e le quote di ricerca.",
     benefitsWelcome: "Buongiorno! Sono il vostro consulente Cassa. Posso aiutarvi con le indennità, il guadagno intermedio e le scadenze.",
     socialWelcome: "Buongiorno! Sono il vostro assistente sociale. Posso aiutarvi con le procedure di aiuto sociale.",
+    chooseAdvisor: "Scegliete il vostro consulente",
+    changeAdvisor: "Cambia consulente",
+    typing: "Sta scrivendo...",
+    quickActionDeadlines: "Quali sono le mie scadenze questo mese?",
+    quickActionCV: "Aiutatemi con il mio CV",
+    quickActionGain: "Come dichiarare un guadagno intermedio?",
+    orpDesc: "LADI, obblighi, quote di ricerca",
+    benefitsDesc: "Indennità, guadagno intermedio, scadenze",
+    socialAssistantDesc: "Procedure di aiuto sociale",
 
     sourceORP: "URC",
     sourceSECO: "SECO",
@@ -267,6 +303,15 @@ export const translations: Record<Language, TranslationKeys> = {
     orpWelcome: "Hello! I'm your ORP advisor. I can help you with LACI law, assignments, and search quotas.",
     benefitsWelcome: "Hello! I'm your Benefits advisor. I can help you with indemnities, interim earnings, and deadlines.",
     socialWelcome: "Hello! I'm your Social assistant. I can help you with social aid procedures.",
+    chooseAdvisor: "Choose your advisor",
+    changeAdvisor: "Change advisor",
+    typing: "Typing...",
+    quickActionDeadlines: "What are my deadlines this month?",
+    quickActionCV: "Help me with my CV",
+    quickActionGain: "How to declare interim earnings?",
+    orpDesc: "LACI law, obligations, search quotas",
+    benefitsDesc: "Indemnities, interim earnings, deadlines",
+    socialAssistantDesc: "Social aid procedures",
 
     sourceORP: "ORP",
     sourceSECO: "SECO",
@@ -317,6 +362,15 @@ export const translations: Record<Language, TranslationKeys> = {
     orpWelcome: "Olá! Sou seu conselheiro ORP. Posso ajudá-lo com a LACI, obrigações e cotas de pesquisa.",
     benefitsWelcome: "Olá! Sou seu conselheiro Caixa. Posso ajudá-lo com indemnizações, ganho intermediário e prazos.",
     socialWelcome: "Olá! Sou seu assistente social. Posso ajudá-lo com os procedimentos de ajuda social.",
+    chooseAdvisor: "Escolha o seu conselheiro",
+    changeAdvisor: "Mudar de conselheiro",
+    typing: "A escrever...",
+    quickActionDeadlines: "Quais são os meus prazos este mês?",
+    quickActionCV: "Ajude-me com o meu CV",
+    quickActionGain: "Como declarar um ganho intermediário?",
+    orpDesc: "LACI, obrigações, cotas de pesquisa",
+    benefitsDesc: "Indemnizações, ganho intermediário, prazos",
+    socialAssistantDesc: "Procedimentos de ajuda social",
 
     sourceORP: "ORP",
     sourceSECO: "SECO",
@@ -367,6 +421,15 @@ export const translations: Record<Language, TranslationKeys> = {
     orpWelcome: "¡Hola! Soy su consejero ORP. Puedo ayudarle con la LACI, obligaciones y cuotas de búsqueda.",
     benefitsWelcome: "¡Hola! Soy su consejero Caja. Puedo ayudarle con indemnizaciones, ganancia intermedia y plazos.",
     socialWelcome: "¡Hola! Soy su asistente social. Puedo ayudarle con los procedimientos de ayuda social.",
+    chooseAdvisor: "Elija su consejero",
+    changeAdvisor: "Cambiar de consejero",
+    typing: "Escribiendo...",
+    quickActionDeadlines: "¿Cuáles son mis plazos este mes?",
+    quickActionCV: "Ayúdeme con mi CV",
+    quickActionGain: "¿Cómo declarar una ganancia intermedia?",
+    orpDesc: "LACI, obligaciones, cuotas de búsqueda",
+    benefitsDesc: "Indemnizaciones, ganancia intermedia, plazos",
+    socialAssistantDesc: "Procedimientos de ayuda social",
 
     sourceORP: "ORP",
     sourceSECO: "SECO",
@@ -417,6 +480,15 @@ export const translations: Record<Language, TranslationKeys> = {
     orpWelcome: "Përshëndetje! Jam këshilltari juaj ORP. Mund t'ju ndihmoj me LACI, detyrimet dhe kuotat e kërkimit.",
     benefitsWelcome: "Përshëndetje! Jam këshilltari juaj i Arkës. Mund t'ju ndihmoj me dëmshpërblimet, fitimin e ndërmjetëm dhe afatet.",
     socialWelcome: "Përshëndetje! Jam asistenti juaj social. Mund t'ju ndihmoj me procedurat e ndihmës sociale.",
+    chooseAdvisor: "Zgjidhni këshilltarin tuaj",
+    changeAdvisor: "Ndryshoni këshilltarin",
+    typing: "Duke shkruar...",
+    quickActionDeadlines: "Cilat janë afatet e mia këtë muaj?",
+    quickActionCV: "Më ndihmoni me CV-në time",
+    quickActionGain: "Si të deklaroj një fitim të ndërmjetëm?",
+    orpDesc: "LACI, detyrimet, kuotat e kërkimit",
+    benefitsDesc: "Dëmshpërblimet, fitimi i ndërmjetëm, afatet",
+    socialAssistantDesc: "Procedurat e ndihmës sociale",
 
     sourceORP: "ORP",
     sourceSECO: "SECO",
@@ -467,6 +539,15 @@ export const translations: Record<Language, TranslationKeys> = {
     orpWelcome: "مرحباً! أنا مستشار ORP الخاص بك. يمكنني مساعدتك في قانون LACI والالتزامات وحصص البحث.",
     benefitsWelcome: "مرحباً! أنا مستشار الصندوق الخاص بك. يمكنني مساعدتك في التعويضات والأرباح المؤقتة والمواعيد النهائية.",
     socialWelcome: "مرحباً! أنا مساعدك الاجتماعي. يمكنني مساعدتك في إجراءات المساعدة الاجتماعية.",
+    chooseAdvisor: "اختر مستشارك",
+    changeAdvisor: "تغيير المستشار",
+    typing: "يكتب...",
+    quickActionDeadlines: "ما هي مواعيدي النهائية هذا الشهر؟",
+    quickActionCV: "ساعدني في سيرتي الذاتية",
+    quickActionGain: "كيف أعلن عن أرباح مؤقتة؟",
+    orpDesc: "قانون LACI، الالتزامات، حصص البحث",
+    benefitsDesc: "التعويضات، الأرباح المؤقتة، المواعيد النهائية",
+    socialAssistantDesc: "إجراءات المساعدة الاجتماعية",
 
     sourceORP: "ORP",
     sourceSECO: "SECO",
