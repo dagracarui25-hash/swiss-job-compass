@@ -31,6 +31,10 @@ export const links = {
   social: [
     { nameKey: "hospiceGeneral", url: "https://www.hospicegeneral.ch/" },
     { nameKey: "csrVaud", url: "https://www.vd.ch/themes/social/aide-sociale" },
+    { nameKey: "sozialdienstBern", url: "https://www.bern.ch/themen/gesundheit-alter-und-soziales/sozialhilfe" },
+    { nameKey: "sozialdienstZurich", url: "https://www.stadt-zuerich.ch/sd/de/index.html" },
+    { nameKey: "sozialdienstBasel", url: "https://www.sozialhilfe.bs.ch/" },
+    { nameKey: "sozialdienstTicino", url: "https://www4.ti.ch/dss/dasf/ias/prestazioni-assistenziali/prestazioni/assistenza-sociale" },
     { nameKey: "healthInsurance", url: "https://www.bag.admin.ch/bag/fr/home/versicherungen/krankenversicherung/krankenversicherung-versicherte-mit-wohnort-in-der-schweiz/praemienverbilligung.html" },
     { nameKey: "housingAid", url: "https://www.bwo.admin.ch/bwo/fr/home.html" },
   ] as LinkItem[],

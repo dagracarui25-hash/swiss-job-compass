@@ -51,6 +51,10 @@ type TranslationKeys = {
   housingAid: string;
   hospiceGeneral: string;
   csrVaud: string;
+  sozialdienstBern: string;
+  sozialdienstZurich: string;
+  sozialdienstBasel: string;
+  sozialdienstTicino: string;
 
   // Chatbot
   chatbotTitle: string;
