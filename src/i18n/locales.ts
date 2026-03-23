@@ -64,6 +64,15 @@ type TranslationKeys = {
   orpWelcome: string;
   benefitsWelcome: string;
   socialWelcome: string;
+  chooseAdvisor: string;
+  changeAdvisor: string;
+  typing: string;
+  quickActionDeadlines: string;
+  quickActionCV: string;
+  quickActionGain: string;
+  orpDesc: string;
+  benefitsDesc: string;
+  socialAssistantDesc: string;
 
   // News
   sourceORP: string;
