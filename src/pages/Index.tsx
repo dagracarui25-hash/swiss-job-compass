@@ -1,5 +1,6 @@
 import { useLanguage } from "@/i18n/useLanguage";
 import LanguageSwitcher from "@/components/LanguageSwitcher";
+import DarkModeToggle from "@/components/DarkModeToggle";
 import PillarCard from "@/components/PillarCard";
 import NewsFeed from "@/components/NewsFeed";
 import ChatBot from "@/components/ChatBot";
@@ -36,7 +37,10 @@ const Index = () => {
             <h1 className="text-xl font-bold text-foreground sm:text-2xl">{t("dashboardTitle")}</h1>
             <p className="text-sm text-muted-foreground mt-0.5">{t("dashboardSubtitle")}</p>
           </div>
-          <LanguageSwitcher />
+          <div className="flex items-center gap-2">
+            <DarkModeToggle />
+            <LanguageSwitcher />
+          </div>
         </div>
       </header>
 
