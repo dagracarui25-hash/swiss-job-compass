@@ -78,6 +78,14 @@ type TranslationKeys = {
   sourceORP: string;
   sourceSECO: string;
   sourceCanton: string;
+
+  // Reviews
+  reviewsTitle: string;
+  leaveReview: string;
+  yourName: string;
+  yourRating: string;
+  yourComment: string;
+  submitReview: string;
 };
 
 export const translations: Record<Language, TranslationKeys> = {
