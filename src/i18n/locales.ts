@@ -88,6 +88,17 @@ type TranslationKeys = {
   submitReview: string;
   chatbotCTA: string;
   chatbotTooltip: string;
+
+  // Hero
+  heroTitle: string;
+  heroSubtitle: string;
+  heroPlaceholder: string;
+  heroWelcome: string;
+  quickCalcIndemnites: string;
+  quickDelaisRecherche: string;
+  quickFormation: string;
+  quickContester: string;
+  legalDisclaimer: string;
 };
 
 export const translations: Record<Language, TranslationKeys> = {
@@ -157,6 +168,15 @@ export const translations: Record<Language, TranslationKeys> = {
     submitReview: "Envoyer",
     chatbotCTA: "Besoin d'aide ?",
     chatbotTooltip: "Posez vos questions sur l'ORP ici !",
+    heroTitle: "Votre assistant expert ORP & Social",
+    heroSubtitle: "Obtenez des réponses immédiates sur vos droits, vos indemnités et les mesures de réinsertion. Posez votre question ci-dessous.",
+    heroPlaceholder: "Posez votre question sur le chômage ou vos droits ici...",
+    heroWelcome: "Bonjour ! Je suis votre assistant virtuel spécialisé dans le système social suisse. Je peux vous aider à comprendre vos droits à l'ORP, calculer vos indemnités ou vous guider dans vos démarches. Posez-moi votre question !",
+    quickCalcIndemnites: "Calcul des indemnités",
+    quickDelaisRecherche: "Délais de recherche",
+    quickFormation: "Mesures de formation",
+    quickContester: "Contester une décision",
+    legalDisclaimer: "Avertissement : Les réponses sont générées par IA à titre informatif et ne remplacent pas les décisions officielles de l'ORP ou de la Caisse de chômage.",
   },
   de: {
     dashboardTitle: "Dashboard für Stellensuchende",
@@ -224,6 +244,15 @@ export const translations: Record<Language, TranslationKeys> = {
     submitReview: "Absenden",
     chatbotCTA: "Brauchen Sie Hilfe?",
     chatbotTooltip: "Stellen Sie hier Ihre Fragen zum RAV!",
+    heroTitle: "Ihr Experten-Assistent für RAV & Soziales",
+    heroSubtitle: "Erhalten Sie sofortige Antworten zu Ihren Rechten, Entschädigungen und Wiedereingliederungsmassnahmen. Stellen Sie Ihre Frage unten.",
+    heroPlaceholder: "Stellen Sie Ihre Frage zur Arbeitslosigkeit oder Ihren Rechten hier...",
+    heroWelcome: "Guten Tag! Ich bin Ihr virtueller Assistent, spezialisiert auf das Schweizer Sozialsystem. Ich kann Ihnen helfen, Ihre Rechte beim RAV zu verstehen, Ihre Entschädigungen zu berechnen oder Sie bei Ihren Schritten zu begleiten.",
+    quickCalcIndemnites: "Berechnung der Entschädigungen",
+    quickDelaisRecherche: "Suchfristen",
+    quickFormation: "Weiterbildungsmassnahmen",
+    quickContester: "Entscheid anfechten",
+    legalDisclaimer: "Hinweis: Die Antworten werden durch KI generiert und dienen nur zur Information. Sie ersetzen nicht die offiziellen Entscheide des RAV oder der Arbeitslosenkasse.",
   },
   it: {
     dashboardTitle: "Dashboard per chi cerca lavoro",
@@ -291,6 +320,15 @@ export const translations: Record<Language, TranslationKeys> = {
     submitReview: "Invia",
     chatbotCTA: "Hai bisogno di aiuto?",
     chatbotTooltip: "Fai le tue domande sull'URC qui!",
+    heroTitle: "Il vostro assistente esperto URC & Sociale",
+    heroSubtitle: "Ottenete risposte immediate sui vostri diritti, indennità e misure di reinserimento. Ponete la vostra domanda qui sotto.",
+    heroPlaceholder: "Ponete la vostra domanda sulla disoccupazione o sui vostri diritti qui...",
+    heroWelcome: "Buongiorno! Sono il vostro assistente virtuale specializzato nel sistema sociale svizzero. Posso aiutarvi a capire i vostri diritti all'URC, calcolare le vostre indennità o guidarvi nelle vostre pratiche.",
+    quickCalcIndemnites: "Calcolo delle indennità",
+    quickDelaisRecherche: "Scadenze di ricerca",
+    quickFormation: "Misure di formazione",
+    quickContester: "Contestare una decisione",
+    legalDisclaimer: "Avvertenza: Le risposte sono generate dall'IA a scopo informativo e non sostituiscono le decisioni ufficiali dell'URC o della Cassa di disoccupazione.",
   },
   en: {
     dashboardTitle: "Job Seeker Dashboard",
@@ -358,6 +396,15 @@ export const translations: Record<Language, TranslationKeys> = {
     submitReview: "Submit",
     chatbotCTA: "Need help?",
     chatbotTooltip: "Ask your questions about the PES here!",
+    heroTitle: "Your Expert ORP & Social Assistant",
+    heroSubtitle: "Get immediate answers about your rights, benefits, and reintegration measures. Ask your question below.",
+    heroPlaceholder: "Ask your question about unemployment or your rights here...",
+    heroWelcome: "Hello! I'm your virtual assistant specialized in the Swiss social system. I can help you understand your rights at the ORP, calculate your benefits, or guide you through your procedures. Ask me your question!",
+    quickCalcIndemnites: "Calculate benefits",
+    quickDelaisRecherche: "Search deadlines",
+    quickFormation: "Training measures",
+    quickContester: "Contest a decision",
+    legalDisclaimer: "Disclaimer: Responses are AI-generated for informational purposes only and do not replace official decisions from the ORP or the Unemployment Fund.",
   },
   pt: {
     dashboardTitle: "Painel do Candidato a Emprego",
@@ -425,6 +472,15 @@ export const translations: Record<Language, TranslationKeys> = {
     submitReview: "Enviar",
     chatbotCTA: "Precisa de ajuda?",
     chatbotTooltip: "Faça suas perguntas sobre o ORP aqui!",
+    heroTitle: "Seu Assistente Especialista ORP & Social",
+    heroSubtitle: "Obtenha respostas imediatas sobre seus direitos, indemnizações e medidas de reinserção. Faça sua pergunta abaixo.",
+    heroPlaceholder: "Faça sua pergunta sobre desemprego ou seus direitos aqui...",
+    heroWelcome: "Olá! Sou seu assistente virtual especializado no sistema social suíço. Posso ajudá-lo a entender seus direitos no ORP, calcular suas indemnizações ou orientá-lo em seus procedimentos.",
+    quickCalcIndemnites: "Cálculo das indemnizações",
+    quickDelaisRecherche: "Prazos de pesquisa",
+    quickFormation: "Medidas de formação",
+    quickContester: "Contestar uma decisão",
+    legalDisclaimer: "Aviso: As respostas são geradas por IA a título informativo e não substituem as decisões oficiais do ORP ou da Caixa de Desemprego.",
   },
   es: {
     dashboardTitle: "Panel del Buscador de Empleo",
@@ -492,6 +548,15 @@ export const translations: Record<Language, TranslationKeys> = {
     submitReview: "Enviar",
     chatbotCTA: "¿Necesita ayuda?",
     chatbotTooltip: "¡Haga sus preguntas sobre la ORP aquí!",
+    heroTitle: "Su Asistente Experto ORP & Social",
+    heroSubtitle: "Obtenga respuestas inmediatas sobre sus derechos, indemnizaciones y medidas de reinserción. Haga su pregunta a continuación.",
+    heroPlaceholder: "Haga su pregunta sobre el desempleo o sus derechos aquí...",
+    heroWelcome: "¡Hola! Soy su asistente virtual especializado en el sistema social suizo. Puedo ayudarle a comprender sus derechos en la ORP, calcular sus indemnizaciones o guiarle en sus trámites.",
+    quickCalcIndemnites: "Cálculo de indemnizaciones",
+    quickDelaisRecherche: "Plazos de búsqueda",
+    quickFormation: "Medidas de formación",
+    quickContester: "Impugnar una decisión",
+    legalDisclaimer: "Aviso: Las respuestas son generadas por IA con fines informativos y no sustituyen las decisiones oficiales de la ORP o de la Caja de Desempleo.",
   },
   sq: {
     dashboardTitle: "Paneli i Kërkuesit të Punës",
@@ -559,6 +624,15 @@ export const translations: Record<Language, TranslationKeys> = {
     submitReview: "Dërgo",
     chatbotCTA: "Keni nevojë për ndihmë?",
     chatbotTooltip: "Bëni pyetjet tuaja për ORP këtu!",
+    heroTitle: "Asistenti juaj ekspert ORP & Social",
+    heroSubtitle: "Merrni përgjigje të menjëhershme mbi të drejtat tuaja, dëmshpërblimet dhe masat e riintegrimit. Bëni pyetjen tuaj më poshtë.",
+    heroPlaceholder: "Bëni pyetjen tuaj për papunësinë ose të drejtat tuaja këtu...",
+    heroWelcome: "Përshëndetje! Jam asistenti juaj virtual i specializuar në sistemin social zviceran. Mund t'ju ndihmoj të kuptoni të drejtat tuaja në ORP, të llogarisni dëmshpërblimet ose t'ju udhëzoj në procedurat tuaja.",
+    quickCalcIndemnites: "Llogaritja e dëmshpërblimeve",
+    quickDelaisRecherche: "Afatet e kërkimit",
+    quickFormation: "Masat e formimit",
+    quickContester: "Kontestoni një vendim",
+    legalDisclaimer: "Paralajmërim: Përgjigjet janë gjeneruar nga IA për qëllime informative dhe nuk zëvendësojnë vendimet zyrtare të ORP ose Arkës së Papunësisë.",
   },
   ar: {
     dashboardTitle: "لوحة تحكم الباحث عن عمل",
@@ -626,5 +700,14 @@ export const translations: Record<Language, TranslationKeys> = {
     submitReview: "إرسال",
     chatbotCTA: "هل تحتاج مساعدة؟",
     chatbotTooltip: "!اطرح أسئلتك حول مكتب العمل هنا",
+    heroTitle: "مساعدك الخبير في ORP والشؤون الاجتماعية",
+    heroSubtitle: "احصل على إجابات فورية حول حقوقك وتعويضاتك وإجراءات إعادة الإدماج. اطرح سؤالك أدناه.",
+    heroPlaceholder: "اطرح سؤالك حول البطالة أو حقوقك هنا...",
+    heroWelcome: "مرحباً! أنا مساعدك الافتراضي المتخصص في النظام الاجتماعي السويسري. يمكنني مساعدتك في فهم حقوقك في ORP، حساب تعويضاتك أو إرشادك في إجراءاتك.",
+    quickCalcIndemnites: "حساب التعويضات",
+    quickDelaisRecherche: "مواعيد البحث",
+    quickFormation: "تدابير التكوين",
+    quickContester: "الطعن في قرار",
+    legalDisclaimer: "تنبيه: يتم إنشاء الإجابات بواسطة الذكاء الاصطناعي لأغراض إعلامية فقط ولا تحل محل القرارات الرسمية لـ ORP أو صندوق البطالة.",
   },
 };
