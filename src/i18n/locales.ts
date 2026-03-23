@@ -455,6 +455,10 @@ export const translations: Record<Language, TranslationKeys> = {
     housingAid: "المساعدة في السكن",
     hospiceGeneral: "Hospice Général (جنيف)",
     csrVaud: "CSR (فو)",
+    sozialdienstBern: "الخدمات الاجتماعية (برن)",
+    sozialdienstZurich: "الخدمات الاجتماعية (زيورخ)",
+    sozialdienstBasel: "الخدمات الاجتماعية (بازل)",
+    sozialdienstTicino: "الخدمات الاجتماعية (تيتشينو)",
 
     chatbotTitle: "المساعد الافتراضي",
     orpAdvisor: "مستشار ORP",
