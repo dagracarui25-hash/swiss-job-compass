@@ -289,6 +289,8 @@ export const translations: Record<Language, TranslationKeys> = {
     yourRating: "La tua valutazione",
     yourComment: "Il tuo commento",
     submitReview: "Invia",
+    chatbotCTA: "Hai bisogno di aiuto?",
+    chatbotTooltip: "Fai le tue domande sull'URC qui!",
   },
   en: {
     dashboardTitle: "Job Seeker Dashboard",
