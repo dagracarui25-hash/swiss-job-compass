@@ -155,6 +155,8 @@ export const translations: Record<Language, TranslationKeys> = {
     yourRating: "Votre note",
     yourComment: "Votre commentaire",
     submitReview: "Envoyer",
+    chatbotCTA: "Besoin d'aide ?",
+    chatbotTooltip: "Posez vos questions sur l'ORP ici !",
   },
   de: {
     dashboardTitle: "Dashboard für Stellensuchende",
