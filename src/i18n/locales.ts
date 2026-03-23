@@ -86,6 +86,8 @@ type TranslationKeys = {
   yourRating: string;
   yourComment: string;
   submitReview: string;
+  chatbotCTA: string;
+  chatbotTooltip: string;
 };
 
 export const translations: Record<Language, TranslationKeys> = {
