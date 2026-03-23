@@ -537,6 +537,12 @@ export const translations: Record<Language, TranslationKeys> = {
     sourceORP: "ORP",
     sourceSECO: "SECO",
     sourceCanton: "Kantoni",
+    reviewsTitle: "Vlerësime & Dëshmi",
+    leaveReview: "Lini një vlerësim",
+    yourName: "Emri juaj",
+    yourRating: "Vlerësimi juaj",
+    yourComment: "Komenti juaj",
+    submitReview: "Dërgo",
   },
   ar: {
     dashboardTitle: "لوحة تحكم الباحث عن عمل",
