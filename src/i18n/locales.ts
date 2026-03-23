@@ -472,6 +472,12 @@ export const translations: Record<Language, TranslationKeys> = {
     sourceORP: "ORP",
     sourceSECO: "SECO",
     sourceCanton: "Cantón",
+    reviewsTitle: "Opiniones & Testimonios",
+    leaveReview: "Dejar una opinión",
+    yourName: "Su nombre",
+    yourRating: "Su calificación",
+    yourComment: "Su comentario",
+    submitReview: "Enviar",
   },
   sq: {
     dashboardTitle: "Paneli i Kërkuesit të Punës",
