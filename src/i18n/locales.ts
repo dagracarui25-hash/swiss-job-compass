@@ -602,5 +602,11 @@ export const translations: Record<Language, TranslationKeys> = {
     sourceORP: "ORP",
     sourceSECO: "SECO",
     sourceCanton: "الكانتون",
+    reviewsTitle: "التقييمات والشهادات",
+    leaveReview: "اترك تقييماً",
+    yourName: "اسمك",
+    yourRating: "تقييمك",
+    yourComment: "تعليقك",
+    submitReview: "إرسال",
   },
 };
