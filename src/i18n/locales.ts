@@ -490,6 +490,8 @@ export const translations: Record<Language, TranslationKeys> = {
     yourRating: "Su calificación",
     yourComment: "Su comentario",
     submitReview: "Enviar",
+    chatbotCTA: "¿Necesita ayuda?",
+    chatbotTooltip: "¡Haga sus preguntas sobre la ORP aquí!",
   },
   sq: {
     dashboardTitle: "Paneli i Kërkuesit të Punës",
