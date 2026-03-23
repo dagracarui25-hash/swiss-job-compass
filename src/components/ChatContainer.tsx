@@ -15,7 +15,7 @@ const personaMeta: Record<Persona, { labelKey: string; descKey: string; welcomeK
   orp: {
     labelKey: "orpAdvisor",
     descKey: "orpDesc",
-    welcomeKey: "orpWelcome",
+    welcomeKey: "heroWelcome",
     icon: <Briefcase className="h-7 w-7" />,
     colorClass: "text-pillar-blue",
     bgClass: "bg-pillar-blue",
@@ -51,20 +51,46 @@ function mockResponse(persona: Persona, t: (k: string) => string): string {
 
 interface ChatContainerProps {
   onClose: () => void;
+  initialMessage?: string;
+  onInitialMessageConsumed?: () => void;
 }
 
-const ChatContainer = ({ onClose }: ChatContainerProps) => {
+const ChatContainer = ({ onClose, initialMessage, onInitialMessageConsumed }: ChatContainerProps) => {
   const { t, dir } = useLanguage();
   const [persona, setPersona] = useState<Persona | null>(null);
   const [messages, setMessages] = useState<Message[]>([]);
   const [input, setInput] = useState("");
   const [isTyping, setIsTyping] = useState(false);
   const messagesEndRef = useRef<HTMLDivElement>(null);
-  const inputRef = useRef<HTMLInputElement>(null);
+  const initialMessageHandled = useRef(false);
 
   useEffect(() => {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
   }, [messages, isTyping]);
+
+  // Auto-select ORP persona and send initial message from hero
+  useEffect(() => {
+    if (initialMessage && !initialMessageHandled.current) {
+      initialMessageHandled.current = true;
+      // Auto-select ORP persona
+      setPersona("orp");
+      const welcomeMsg: Message = { id: "welcome", role: "assistant", content: t("heroWelcome") };
+      const userMsg: Message = { id: Date.now().toString(), role: "user", content: initialMessage };
+      setMessages([welcomeMsg, userMsg]);
+      setIsTyping(true);
+      onInitialMessageConsumed?.();
+
+      setTimeout(() => {
+        const botMsg: Message = {
+          id: (Date.now() + 1).toString(),
+          role: "assistant",
+          content: mockResponse("orp", t),
+        };
+        setMessages((prev) => [...prev, botMsg]);
+        setIsTyping(false);
+      }, 800);
+    }
+  }, [initialMessage, t, onInitialMessageConsumed]);
 
   const selectPersona = useCallback((p: Persona) => {
     setPersona(p);
@@ -138,7 +164,7 @@ const ChatContainer = ({ onClose }: ChatContainerProps) => {
       {/* Header */}
       <div className={cn("flex items-center gap-3 border-b border-border p-4", meta.bgClass + "/10")}>
         <button
-          onClick={() => { setPersona(null); setMessages([]); }}
+          onClick={() => { setPersona(null); setMessages([]); initialMessageHandled.current = false; }}
           className="flex h-8 w-8 items-center justify-center rounded-lg text-muted-foreground hover:bg-muted"
           aria-label={t("changeAdvisor")}
         >
@@ -191,7 +217,6 @@ const ChatContainer = ({ onClose }: ChatContainerProps) => {
       <div className="border-t border-border p-3">
         <div className="flex items-center gap-2">
           <input
-            ref={inputRef}
             type="text"
             value={input}
             onChange={(e) => setInput(e.target.value)}
