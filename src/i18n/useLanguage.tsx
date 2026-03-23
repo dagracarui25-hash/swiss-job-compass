@@ -8,12 +8,21 @@ interface LanguageContextType {
   dir: "ltr" | "rtl";
 }
 
-const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
+const globalStore = globalThis as typeof globalThis & {
+  __dashboardLanguageContext?: React.Context<LanguageContextType | undefined>;
+};
+
+const LanguageContext =
+  globalStore.__dashboardLanguageContext ?? createContext<LanguageContextType | undefined>(undefined);
+
+if (!globalStore.__dashboardLanguageContext) {
+  globalStore.__dashboardLanguageContext = LanguageContext;
+}
 
 export const LanguageProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const [currentLang, setCurrentLang] = useState<Language>(() => {
-    const saved = localStorage.getItem("dashboard-lang");
-    return (saved as Language) || "fr";
+    const saved = localStorage.getItem("dashboard-lang") as Language | null;
+    return saved && translations[saved] ? saved : "fr";
   });
 
   const dir = rtlLanguages.includes(currentLang) ? "rtl" : "ltr";
@@ -31,17 +40,13 @@ export const LanguageProvider: React.FC<{ children: React.ReactNode }> = ({ chil
   const t = useCallback(
     (key: string): string => {
       const current = translations[currentLang];
-      const fallback = translations["fr"];
+      const fallback = translations.fr;
       return (current as Record<string, string>)[key] ?? (fallback as Record<string, string>)[key] ?? key;
     },
     [currentLang]
   );
 
-  return (
-    <LanguageContext.Provider value={{ currentLang, setLang, t, dir }}>
-      {children}
-    </LanguageContext.Provider>
-  );
+  return <LanguageContext.Provider value={{ currentLang, setLang, t, dir }}>{children}</LanguageContext.Provider>;
 };
 
 export const useLanguage = (): LanguageContextType => {
