@@ -86,6 +86,8 @@ type TranslationKeys = {
   yourRating: string;
   yourComment: string;
   submitReview: string;
+  chatbotCTA: string;
+  chatbotTooltip: string;
 };
 
 export const translations: Record<Language, TranslationKeys> = {
@@ -153,6 +155,8 @@ export const translations: Record<Language, TranslationKeys> = {
     yourRating: "Votre note",
     yourComment: "Votre commentaire",
     submitReview: "Envoyer",
+    chatbotCTA: "Besoin d'aide ?",
+    chatbotTooltip: "Posez vos questions sur l'ORP ici !",
   },
   de: {
     dashboardTitle: "Dashboard für Stellensuchende",
@@ -218,6 +222,8 @@ export const translations: Record<Language, TranslationKeys> = {
     yourRating: "Ihre Bewertung",
     yourComment: "Ihr Kommentar",
     submitReview: "Absenden",
+    chatbotCTA: "Brauchen Sie Hilfe?",
+    chatbotTooltip: "Stellen Sie hier Ihre Fragen zum RAV!",
   },
   it: {
     dashboardTitle: "Dashboard per chi cerca lavoro",
@@ -283,6 +289,8 @@ export const translations: Record<Language, TranslationKeys> = {
     yourRating: "La tua valutazione",
     yourComment: "Il tuo commento",
     submitReview: "Invia",
+    chatbotCTA: "Hai bisogno di aiuto?",
+    chatbotTooltip: "Fai le tue domande sull'URC qui!",
   },
   en: {
     dashboardTitle: "Job Seeker Dashboard",
@@ -348,6 +356,8 @@ export const translations: Record<Language, TranslationKeys> = {
     yourRating: "Your rating",
     yourComment: "Your comment",
     submitReview: "Submit",
+    chatbotCTA: "Need help?",
+    chatbotTooltip: "Ask your questions about the PES here!",
   },
   pt: {
     dashboardTitle: "Painel do Candidato a Emprego",
@@ -413,6 +423,8 @@ export const translations: Record<Language, TranslationKeys> = {
     yourRating: "Sua nota",
     yourComment: "Seu comentário",
     submitReview: "Enviar",
+    chatbotCTA: "Precisa de ajuda?",
+    chatbotTooltip: "Faça suas perguntas sobre o ORP aqui!",
   },
   es: {
     dashboardTitle: "Panel del Buscador de Empleo",
@@ -478,6 +490,8 @@ export const translations: Record<Language, TranslationKeys> = {
     yourRating: "Su calificación",
     yourComment: "Su comentario",
     submitReview: "Enviar",
+    chatbotCTA: "¿Necesita ayuda?",
+    chatbotTooltip: "¡Haga sus preguntas sobre la ORP aquí!",
   },
   sq: {
     dashboardTitle: "Paneli i Kërkuesit të Punës",
@@ -543,6 +557,8 @@ export const translations: Record<Language, TranslationKeys> = {
     yourRating: "Vlerësimi juaj",
     yourComment: "Komenti juaj",
     submitReview: "Dërgo",
+    chatbotCTA: "Keni nevojë për ndihmë?",
+    chatbotTooltip: "Bëni pyetjet tuaja për ORP këtu!",
   },
   ar: {
     dashboardTitle: "لوحة تحكم الباحث عن عمل",
@@ -608,5 +624,7 @@ export const translations: Record<Language, TranslationKeys> = {
     yourRating: "تقييمك",
     yourComment: "تعليقك",
     submitReview: "إرسال",
+    chatbotCTA: "هل تحتاج مساعدة؟",
+    chatbotTooltip: "!اطرح أسئلتك حول مكتب العمل هنا",
   },
 };
