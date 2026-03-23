@@ -1,0 +1,34 @@
+[
+  {
+    "id": "1",
+    "titleKey": "Nouvelle mesure de formation professionnelle 2026",
+    "source": "ORP",
+    "date": "2026-03-20",
+    "url": "https://www.arbeit.swiss/",
+    "summary": "Le SECO annonce de nouvelles mesures de formation pour les chercheurs d'emploi en 2026."
+  },
+  {
+    "id": "2",
+    "titleKey": "Mise à jour des indemnités journalières",
+    "source": "SECO",
+    "date": "2026-03-18",
+    "url": "https://www.seco.admin.ch/",
+    "summary": "Les montants des indemnités journalières ont été ajustés pour le deuxième trimestre 2026."
+  },
+  {
+    "id": "3",
+    "titleKey": "Programme d'insertion cantonale — Genève",
+    "source": "Canton",
+    "date": "2026-03-15",
+    "url": "https://www.ge.ch/",
+    "summary": "Le canton de Genève lance un nouveau programme d'insertion pour les jeunes demandeurs d'emploi."
+  },
+  {
+    "id": "4",
+    "titleKey": "Nouveau cours MMT disponible — Compétences numériques",
+    "source": "ORP",
+    "date": "2026-03-10",
+    "url": "https://www.arbeit.swiss/",
+    "summary": "Un nouveau cours de mesures du marché du travail axé sur les compétences numériques est disponible."
+  }
+]
