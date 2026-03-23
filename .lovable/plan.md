@@ -1,50 +1,52 @@
 
 
-# Swiss Job Seeker Dashboard — Implementation Plan
+# AI Chatbot Interface — Upgrade Plan
 
-## Overview
-A production-ready, multilingual dashboard for Swiss job seekers with 8 languages (including Arabic RTL), 4 color-coded pillars, a news feed, and an AI chatbot. Clean, modular, Cursor-friendly architecture.
+## What Changes
 
-## Files to Create/Modify
+### 1. New Components
+- **`src/components/ChatMessage.tsx`** — Standalone message bubble component with avatar, timestamp, RTL-aware alignment. User messages right-aligned (or left in RTL), assistant messages left-aligned with persona icon.
+- **`src/components/ChatContainer.tsx`** — Chat logic container: manages messages state, persona selection screen, quick action buttons, mock response function. Imported by `ChatBot.tsx`.
 
-### Data Layer
-- **`src/i18n/locales.ts`** — All translations for 8 languages (FR, DE, IT, EN, PT, ES, SQ, AR), keyed by feature
-- **`src/i18n/useLanguage.tsx`** — React context providing `t(key)`, `currentLang`, `setLang`, `dir` (rtl/ltr); sets `dir` attribute on `<html>`
-- **`src/data/links.ts`** — Structured URLs per pillar (admin, jobs, social, news) including the Genially guide link
-- **`src/data/news.json`** — Mock news entries with title, source, date, url fields
+### 2. Rewrite `src/components/ChatBot.tsx`
+- Larger floating window: `w-[420px] h-[600px]` (expandable to near full-screen on mobile)
+- **Persona selection screen**: On open, show 3 large cards (not small tabs):
+  - "Conseiller ORP" — Briefcase icon, blue theme
+  - "Conseiller Caisse" — Banknote icon, green theme  
+  - "Assistant Social" — Heart icon, orange theme
+- After selection, transition to chat view with:
+  - Colored header bar matching persona theme
+  - Welcome message in current language
+  - **Quick action buttons** below welcome: 3 pill-shaped suggestion buttons
+  - Modern WhatsApp-style bubbles via `ChatMessage.tsx`
+  - Ability to switch persona (resets conversation)
 
-### Components
-- **`src/components/LanguageSwitcher.tsx`** — Fixed top-right dropdown, 8 language options with native names
-- **`src/components/PillarCard.tsx`** — Reusable colored card (blue/green/yellow/purple) with icon, translated title/description, and children slot for link buttons
-- **`src/components/NewsCard.tsx`** — Displays news title, source badge, date, and "Read More" button
-- **`src/components/NewsFeed.tsx`** — Renders news cards from JSON data, includes "Last Updated" status badge
-- **`src/components/ChatBot.tsx`** — Floating chat widget with 3-persona toggle (ORP/Caisse/Social), message bubbles, placeholder responses
+### 3. Mock Response System
+- `mockResponse(persona, userMessage)` function in `ChatContainer.tsx`
+- Returns persona-appropriate placeholder text (i18n-aware)
+- Simulates typing delay (800ms) with a "typing..." indicator
+- Designed for easy replacement with real AI API call
 
-### Pages
-- **`src/pages/Index.tsx`** — Dashboard layout: header with title + language switcher, 2x2 responsive grid of pillar cards, news section below, chatbot floating
+### 4. i18n Updates (`src/i18n/locales.ts`)
+- Add keys for all 8 languages:
+  - `quickActionDeadlines` — "Quels sont mes délais ce mois ?"
+  - `quickActionCV` — "Aidez-moi pour mon CV"
+  - `quickActionGain` — "Comment déclarer un gain intermédiaire ?"
+  - `chooseAdvisor` — "Choisissez votre conseiller"
+  - `changeAdvisor` — "Changer de conseiller"
+  - `typing` — "En train d'écrire..."
 
-### Styling
-- **`src/index.css`** — Add CSS custom properties for pillar colors (blue, green, orange, purple) and RTL utility classes
-- **`tailwind.config.ts`** — Extend with pillar color tokens
+### 5. RTL Support
+- Chat bubbles use `ms-auto`/`me-auto` (logical properties) for correct RTL flip
+- Input area and quick action buttons use `rtl:flex-row-reverse`
+- Persona selection cards work in both directions
 
-## Architecture Decisions
+## File Summary
 
-- **i18n**: Lightweight custom context (no external library) — `t("key")` returns translated string, falls back to French
-- **RTL**: Arabic selection sets `dir="rtl"` on document root; Tailwind `rtl:` variants handle layout reversal
-- **Component pattern**: All text via `t()`, all URLs from `links.ts`, all components accept `className` for composition
-- **Pillar grid**: CSS Grid `grid-cols-1 md:grid-cols-2` with `gap-6`
-- **Chatbot**: Local state only, placeholder responses per persona, ready for future API integration
-- **Accessibility**: All interactive elements min 44px, focus-visible rings, semantic HTML, aria-labels via i18n
-
-## Pillar Details
-
-1. **Administration (Blue)** — Links to Job-Room, E-Services, Caisse de Chômage
-2. **Job Search (Green)** — Job boards (Jobup, Indeed, LinkedIn) + CV tools (Canva, CVDesignR, Free Photo) + CTA button to Genially guide (opens new tab, external icon)
-3. **Social Support (Orange)** — Cantonal social services, health insurance subsidies, housing aid
-4. **ORP News (Purple)** — NewsFeed component with scraped/mock data and status badge
-
-## Visual Style
-- Clean, institutional Swiss feel — calm colors, rounded-2xl cards, soft shadows
-- High legibility, generous spacing, mobile-first responsive
-- No clutter — reassuring, trustworthy tone
+| File | Action |
+|------|--------|
+| `src/components/ChatMessage.tsx` | Create |
+| `src/components/ChatContainer.tsx` | Create |
+| `src/components/ChatBot.tsx` | Rewrite |
+| `src/i18n/locales.ts` | Add ~6 new keys × 8 languages |
 
