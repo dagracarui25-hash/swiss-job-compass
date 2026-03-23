@@ -557,6 +557,8 @@ export const translations: Record<Language, TranslationKeys> = {
     yourRating: "Vlerësimi juaj",
     yourComment: "Komenti juaj",
     submitReview: "Dërgo",
+    chatbotCTA: "Keni nevojë për ndihmë?",
+    chatbotTooltip: "Bëni pyetjet tuaja për ORP këtu!",
   },
   ar: {
     dashboardTitle: "لوحة تحكم الباحث عن عمل",
