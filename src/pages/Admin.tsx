@@ -7,6 +7,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import LinksManager from "@/components/admin/LinksManager";
 import NewsManager from "@/components/admin/NewsManager";
 import ReviewsManager from "@/components/admin/ReviewsManager";
+import KnowledgeManager from "@/components/admin/KnowledgeManager";
 import { toast } from "sonner";
 
 const AdminLogin = ({ onLogin }: { onLogin: (pw: string) => boolean }) => {
@@ -71,7 +72,7 @@ const Admin = () => {
 
       <main className="mx-auto max-w-5xl px-4 py-6 sm:px-6">
         <Tabs defaultValue="links" className="w-full">
-          <TabsList className="w-full grid grid-cols-3 mb-6">
+          <TabsList className="w-full grid grid-cols-4 mb-6">
             <TabsTrigger value="links" className="gap-1.5">
               <Link2 className="h-4 w-4" /> Links
             </TabsTrigger>
@@ -80,6 +81,9 @@ const Admin = () => {
             </TabsTrigger>
             <TabsTrigger value="reviews" className="gap-1.5">
               <Star className="h-4 w-4" /> Reviews
+            </TabsTrigger>
+            <TabsTrigger value="knowledge" className="gap-1.5">
+              <FileText className="h-4 w-4" /> Knowledge
             </TabsTrigger>
           </TabsList>
 
@@ -91,6 +95,9 @@ const Admin = () => {
           </TabsContent>
           <TabsContent value="reviews">
             <ReviewsManager />
+          </TabsContent>
+          <TabsContent value="knowledge">
+            <KnowledgeManager />
           </TabsContent>
         </Tabs>
       </main>

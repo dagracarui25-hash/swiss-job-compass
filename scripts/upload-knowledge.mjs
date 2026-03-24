@@ -26,47 +26,65 @@ const KNOWLEDGE_DATA = [
   {
     category: 'CAISSE',
     content: "Le montant de l'indemnité journalière représente 80% du gain assuré si l'assuré a des obligations d'entretien envers des enfants de moins de 25 ans, si son gain assuré n'excède pas 3797 CHF, ou s'il est invalide à 40%. Dans les autres cas, l'indemnité est de 70%.",
-    source: 'LACI Art. 22'
+    source: 'LACI Art. 22',
+    pdfUrl: '',
+    pdfPage: null,
   },
   {
     category: 'CAISSE',
     content: "Le gain assuré maximum pris en compte par la caisse de chômage est de 12350 CHF par mois (148200 CHF par an). Les revenus au-delà de ce plafond ne sont pas couverts par l'assurance-chômage obligatoire.",
-    source: 'LACI Art. 18'
+    source: 'LACI Art. 18',
+    pdfUrl: '',
+    pdfPage: null,
   },
   {
     category: 'CAISSE',
     content: "Le délai d'attente général avant de percevoir des indemnités dépend du gain assuré : 0 jour si le gain est inférieur à 3000 CHF, 5 jours entre 3001 et 5000 CHF, 10 jours entre 5001 et 7500 CHF, 15 jours entre 7501 et 10000 CHF, et 20 jours au-delà de 10000 CHF.",
-    source: 'LACI Art. 18 al. 1'
+    source: 'LACI Art. 18 al. 1',
+    pdfUrl: '',
+    pdfPage: null,
   },
   {
     category: 'ORP',
     content: "L'assuré doit prouver qu'il a fait des recherches d'emploi durant le délai de congé (avant le chômage). Le nombre habituel de recherches demandées par les conseillers ORP se situe entre 8 et 12 par mois, de manière ciblée et variée.",
-    source: 'Directives SECO / MMT'
+    source: 'Directives SECO / MMT',
+    pdfUrl: '',
+    pdfPage: null,
   },
   {
     category: 'ORP',
     content: "Le refus d'un emploi réputé convenable peut entraîner une suspension du droit aux indemnités (jours-amendes). Un emploi est jugé convenable s'il respecte les conditions de travail usuelles et ne compromet pas la santé de l'assuré.",
-    source: 'LACI Art. 16'
+    source: 'LACI Art. 16',
+    pdfUrl: '',
+    pdfPage: null,
   },
   {
     category: 'ORP',
     content: "Pour s'inscrire au chômage à Genève, il faut se présenter à l'ORP de son lieu de domicile muni d'une pièce d'identité, du certificat de travail, des fiches de salaire des 6 derniers mois et du formulaire IPA rempli.",
-    source: 'OCE Genève'
+    source: 'OCE Genève',
+    pdfUrl: '',
+    pdfPage: null,
   },
   {
     category: 'SOCIAL',
     content: "L'aide sociale (Hospice Général ou CSR) intervient uniquement lorsque toutes les autres prestations (chômage LACI, fortune personnelle, aide de la famille proche) sont épuisées. C'est une prestation dite subsidiaire qui garantit le minimum vital selon les normes COSAS.",
-    source: 'Normes COSAS / Aide Sociale'
+    source: 'Normes COSAS / Aide Sociale',
+    pdfUrl: '',
+    pdfPage: null,
   },
   {
     category: 'SOCIAL',
     content: "En cas de fin de droit au chômage (après 400 ou 520 indemnités), l'assuré doit déposer une demande d'aide sociale au moins un mois avant la fin de ses indemnités pour éviter une rupture de revenu.",
-    source: 'Procédure Fin de Droit Suisse'
+    source: 'Procédure Fin de Droit Suisse',
+    pdfUrl: '',
+    pdfPage: null,
   },
   {
     category: 'CAISSE',
     content: "Le délai-cadre d'indemnisation est de 2 ans. Pour en bénéficier, il faut avoir cotisé au moins 12 mois durant les 2 ans précédant l'inscription au chômage.",
-    source: 'LACI Art. 9'
+    source: 'LACI Art. 9',
+    pdfUrl: '',
+    pdfPage: null,
   },
 ]
 
@@ -127,7 +145,11 @@ async function uploadKnowledge() {
         .insert({
           content: item.content,
           category: item.category,
-          metadata: { source: item.source },
+          metadata: {
+            source: item.source,
+            ...(item.pdfUrl ? { pdf_url: item.pdfUrl } : {}),
+            ...(item.pdfPage ? { pdf_page: item.pdfPage } : {}),
+          },
           embedding: embedding,
         })
 

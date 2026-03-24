@@ -1,6 +1,7 @@
 import { useLanguage } from "@/i18n/useLanguage";
 import { cn } from "@/lib/utils";
 import { Briefcase, Heart, Banknote, User } from "lucide-react";
+import React from "react";
 
 export type Persona = "orp" | "benefits" | "social";
 
@@ -21,6 +22,36 @@ const personaColors: Record<Persona, string> = {
   benefits: "bg-pillar-green/20 text-pillar-green",
   social: "bg-pillar-orange/20 text-pillar-orange",
 };
+
+function renderWithLinks(text: string) {
+  const lines = text.split("\n");
+  const urlRegex = /(https?:\/\/[^\s]+)/g;
+
+  return lines.map((line, lineIdx) => {
+    const parts = line.split(urlRegex);
+    return (
+      <React.Fragment key={`line-${lineIdx}`}>
+        {parts.map((part, idx) => {
+          if (part.startsWith("http://") || part.startsWith("https://")) {
+            return (
+              <a
+                key={`part-${lineIdx}-${idx}`}
+                href={part}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="underline underline-offset-2 text-primary break-all"
+              >
+                {part}
+              </a>
+            );
+          }
+          return <React.Fragment key={`part-${lineIdx}-${idx}`}>{part}</React.Fragment>;
+        })}
+        {lineIdx < lines.length - 1 && <br />}
+      </React.Fragment>
+    );
+  });
+}
 
 const ChatMessage = ({ role, content, persona }: ChatMessageProps) => {
   const { dir } = useLanguage();
@@ -44,7 +75,7 @@ const ChatMessage = ({ role, content, persona }: ChatMessageProps) => {
         {personaIcons[persona]}
       </div>
       <div className="max-w-[80%] rounded-2xl rounded-bl-md bg-muted px-4 py-2.5 text-sm text-foreground">
-        {content}
+        {renderWithLinks(content)}
       </div>
     </div>
   );

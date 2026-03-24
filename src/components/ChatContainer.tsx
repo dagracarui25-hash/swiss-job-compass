@@ -4,11 +4,145 @@ import { Briefcase, Heart, Banknote, ArrowLeft, Send } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import ChatMessage, { type Persona } from "@/components/ChatMessage";
+import { supabase } from "@/integrations/supabase/client";
+import { GoogleGenerativeAI } from "@google/generative-ai";
 
 interface Message {
   id: string;
   role: "user" | "assistant";
   content: string;
+}
+
+interface RetrievedDoc {
+  id: string;
+  content: string;
+  category: string;
+  metadata: {
+    source?: string;
+    pdf_url?: string;
+    pdf_page?: number;
+  } | null;
+  similarity: number;
+}
+
+const EMBED_MODEL = "Xenova/all-mpnet-base-v2";
+const LLM_MODEL = "gemini-1.5-flash";
+const geminiKey = import.meta.env.VITE_GEMINI_API_KEY as string | undefined;
+
+let embedderPromise: Promise<any> | null = null;
+const genAI = geminiKey ? new GoogleGenerativeAI(geminiKey) : null;
+
+async function getEmbedder() {
+  if (!embedderPromise) {
+    embedderPromise = import("@xenova/transformers").then(({ pipeline }) =>
+      pipeline("feature-extraction", EMBED_MODEL)
+    );
+  }
+  return embedderPromise;
+}
+
+function toVectorString(values: number[]) {
+  return `[${values.join(",")}]`;
+}
+
+async function embedQuery(text: string) {
+  const embedder = await getEmbedder();
+  const out = await embedder(text, { pooling: "mean", normalize: true });
+  const arr = Array.from(out.data, (x: number) => Number(x));
+  return toVectorString(arr);
+}
+
+function personaToCategory(persona: Persona): string {
+  switch (persona) {
+    case "orp":
+      return "ORP";
+    case "benefits":
+      return "CAISSE";
+    case "social":
+      return "SOCIAL";
+    default:
+      return "ORP";
+  }
+}
+
+function buildGroundedAnswer(question: string, docs: RetrievedDoc[]) {
+  if (!docs.length) {
+    return "Je n'ai pas trouve de passage pertinent dans la base pour cette question. Essaie de reformuler avec plus de details.";
+  }
+
+  const topDocs = docs.slice(0, 3);
+  const synthesis = topDocs
+    .map((doc, idx) => `${idx + 1}. ${doc.content}`)
+    .join("\n\n");
+  const sources = topDocs
+    .map((doc, idx) => {
+      const source = doc.metadata?.source || "Source non renseignee";
+      const pdfUrl = doc.metadata?.pdf_url;
+      const pdfPage = doc.metadata?.pdf_page;
+      if (pdfUrl && pdfPage) {
+        return `- Source ${idx + 1}: ${source} | PDF p.${pdfPage}: ${pdfUrl}#page=${pdfPage}`;
+      }
+      if (pdfUrl) {
+        return `- Source ${idx + 1}: ${source} | PDF: ${pdfUrl}`;
+      }
+      return `- Source ${idx + 1}: ${source}`;
+    })
+    .join("\n");
+
+  return [
+    `Question: ${question}`,
+    "",
+    "Reponse basee sur les documents indexes:",
+    synthesis,
+    "",
+    "Sources:",
+    sources || "- Source non renseignee",
+  ].join("\n");
+}
+
+function formatSources(docs: RetrievedDoc[]) {
+  const topDocs = docs.slice(0, 3);
+  const sources = topDocs
+    .map((doc, idx) => {
+      const source = doc.metadata?.source || "Source non renseignee";
+      const pdfUrl = doc.metadata?.pdf_url;
+      const pdfPage = doc.metadata?.pdf_page;
+      if (pdfUrl && pdfPage) {
+        return `- Source ${idx + 1}: ${source} | Ouvrir PDF page ${pdfPage}: ${pdfUrl}#page=${pdfPage}`;
+      }
+      if (pdfUrl) {
+        return `- Source ${idx + 1}: ${source} | Ouvrir PDF: ${pdfUrl}`;
+      }
+      return `- Source ${idx + 1}: ${source}`;
+    })
+    .join("\n");
+  return sources || "- Source non renseignee";
+}
+
+async function generateNaturalAnswer(question: string, docs: RetrievedDoc[]) {
+  if (!genAI || !docs.length) return null;
+
+  const context = docs
+    .slice(0, 4)
+    .map((doc, idx) => `Document ${idx + 1} (${doc.metadata?.source ?? "source inconnue"}):\n${doc.content}`)
+    .join("\n\n");
+
+  const prompt = [
+    "Tu es un assistant pour le chomage en Suisse.",
+    "Reponds en francais clair, concis, et utile.",
+    "Utilise UNIQUEMENT le contexte ci-dessous.",
+    "Si une information manque, dis-le clairement sans inventer.",
+    "",
+    `Question utilisateur: ${question}`,
+    "",
+    "Contexte:",
+    context,
+  ].join("\n");
+
+  const model = genAI.getGenerativeModel({ model: LLM_MODEL });
+  const result = await model.generateContent(prompt);
+  const text = result.response.text().trim();
+  return text || null;
 }
 
 const personaMeta: Record<Persona, { labelKey: string; descKey: string; welcomeKey: string; icon: React.ReactNode; colorClass: string; bgClass: string }> = {
@@ -40,15 +174,6 @@ const personaMeta: Record<Persona, { labelKey: string; descKey: string; welcomeK
 
 const quickActionKeys = ["quickActionDeadlines", "quickActionCV", "quickActionGain"] as const;
 
-function mockResponse(persona: Persona, t: (k: string) => string): string {
-  const responses: Record<Persona, string> = {
-    orp: `[${t("orpAdvisor")}] — ${t("orpWelcome")}`,
-    benefits: `[${t("benefitsAdvisor")}] — ${t("benefitsWelcome")}`,
-    social: `[${t("socialAssistant")}] — ${t("socialWelcome")}`,
-  };
-  return responses[persona];
-}
-
 interface ChatContainerProps {
   onClose: () => void;
   initialMessage?: string;
@@ -79,16 +204,43 @@ const ChatContainer = ({ onClose, initialMessage, onInitialMessageConsumed }: Ch
       setMessages([welcomeMsg, userMsg]);
       setIsTyping(true);
       onInitialMessageConsumed?.();
+      (async () => {
+        try {
+          const queryEmbedding = await embedQuery(initialMessage);
+          const { data, error } = await supabase.rpc("match_documents", {
+            query_embedding: queryEmbedding,
+            match_count: 5,
+            match_threshold: 0.2,
+            filter_category: personaToCategory("orp"),
+          });
 
-      setTimeout(() => {
-        const botMsg: Message = {
-          id: (Date.now() + 1).toString(),
-          role: "assistant",
-          content: mockResponse("orp", t),
-        };
-        setMessages((prev) => [...prev, botMsg]);
-        setIsTyping(false);
-      }, 800);
+          if (error) throw error;
+          const docs = (data ?? []) as RetrievedDoc[];
+          const llmResponse = await generateNaturalAnswer(initialMessage, docs);
+          const response =
+            llmResponse
+              ? `${llmResponse}\n\nSources:\n${formatSources(docs)}`
+              : buildGroundedAnswer(initialMessage, docs);
+          const botMsg: Message = {
+            id: (Date.now() + 1).toString(),
+            role: "assistant",
+            content: response,
+          };
+          setMessages((prev) => [...prev, botMsg]);
+        } catch (err) {
+          const fallback = err instanceof Error ? err.message : "Erreur inconnue";
+          setMessages((prev) => [
+            ...prev,
+            {
+              id: (Date.now() + 1).toString(),
+              role: "assistant",
+              content: `Je n'arrive pas a recuperer les documents pour le moment. Detail: ${fallback}`,
+            },
+          ]);
+        } finally {
+          setIsTyping(false);
+        }
+      })();
     }
   }, [initialMessage, t, onInitialMessageConsumed]);
 
@@ -103,16 +255,44 @@ const ChatContainer = ({ onClose, initialMessage, onInitialMessageConsumed }: Ch
     setMessages((prev) => [...prev, userMsg]);
     setInput("");
     setIsTyping(true);
+    (async () => {
+      try {
+        const queryEmbedding = await embedQuery(text);
+        const { data, error } = await supabase.rpc("match_documents", {
+          query_embedding: queryEmbedding,
+          match_count: 5,
+          match_threshold: 0.2,
+          filter_category: personaToCategory(persona),
+        });
 
-    setTimeout(() => {
-      const botMsg: Message = {
-        id: (Date.now() + 1).toString(),
-        role: "assistant",
-        content: mockResponse(persona, t),
-      };
-      setMessages((prev) => [...prev, botMsg]);
-      setIsTyping(false);
-    }, 800);
+        if (error) throw error;
+
+        const docs = (data ?? []) as RetrievedDoc[];
+        const llmResponse = await generateNaturalAnswer(text, docs);
+        const response =
+          llmResponse
+            ? `${llmResponse}\n\nSources:\n${formatSources(docs)}`
+            : buildGroundedAnswer(text, docs);
+        const botMsg: Message = {
+          id: (Date.now() + 1).toString(),
+          role: "assistant",
+          content: response,
+        };
+        setMessages((prev) => [...prev, botMsg]);
+      } catch (err) {
+        const fallback = err instanceof Error ? err.message : "Erreur inconnue";
+        setMessages((prev) => [
+          ...prev,
+          {
+            id: (Date.now() + 1).toString(),
+            role: "assistant",
+            content: `Je n'arrive pas a recuperer les documents pour le moment. Detail: ${fallback}`,
+          },
+        ]);
+      } finally {
+        setIsTyping(false);
+      }
+    })();
   }, [persona, t]);
 
   const handleKeyDown = (e: React.KeyboardEvent) => {

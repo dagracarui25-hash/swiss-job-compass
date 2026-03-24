@@ -9,6 +9,9 @@ export const links = {
     { nameKey: "jobRoom", url: "https://www.job-room.ch/" },
     { nameKey: "eServices", url: "https://www.travail.swiss/secoalv/l/fr" },
     { nameKey: "unemploymentFund", url: "https://www.arbeit.swiss/secoalv/l/fr/home/menue/institutionen-medien/adressen-arbeitslosenkassen.html" },
+    { nameKey: "caissesLinksOfficiels", url: "https://www.arbeit.swiss/secoalv/fr/home/menue/institutionen-medien/links-alk.html" },
+    { nameKey: "caisseUnia", url: "https://www.unia.ch/fr/caisse-de-chomage" },
+    { nameKey: "caisseOCS", url: "https://www.caisse-chomage.ch/" },
   ] as LinkItem[],
 
   jobs: [

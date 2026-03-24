@@ -44,6 +44,53 @@ Variables utiles (optionnelles) dans `.env.local` :
 - `LOCAL_EMBED_MODEL` (défaut: `Xenova/all-mpnet-base-v2`)
 - `EXPECTED_EMBED_DIM` (défaut: `768`)
 
+### Chat RAG + reponse naturelle (Lovable)
+Le chat fait maintenant:
+1. embedding local de la question
+2. recherche vectorielle Supabase (`match_documents`)
+3. generation finale LLM sur les passages recuperes
+4. affichage des sources
+
+Variable requise pour la generation naturelle:
+- `VITE_GEMINI_API_KEY`
+
+Exemple `.env.local`:
+
+```env
+VITE_GEMINI_API_KEY=ta_cle_gemini
+```
+
+Si la cle est absente/invalide, le chat garde un fallback RAG "template" (sans LLM), donc le service reste fonctionnel.
+
+Pour Lovable:
+- ajoute `VITE_GEMINI_API_KEY` dans les variables d'environnement du projet
+- redeploie/restart l'app pour charger la nouvelle variable
+
+### Liens PDF avec page (sources cliquables)
+Le chat peut maintenant afficher des liens de source au format:
+- `https://.../document.pdf#page=12`
+
+Pour activer l'ouverture directe sur la bonne page:
+1. Renseigne `pdfUrl` et `pdfPage` dans chaque entree de `scripts/upload-knowledge.mjs`
+2. Relance l'ingestion
+
+```bash
+node scripts/upload-knowledge.mjs
+```
+
+Ensuite, dans les reponses du chat, la section "Sources" affichera des liens cliquables qui ouvrent le PDF a la page indiquee.
+
+### Admin: gestion ingestion RAG
+La page Admin contient maintenant un onglet **Knowledge** pour gerer l'ingestion manuelle:
+- ajouter un document (categorie, contenu, source, PDF URL, page)
+- indexer directement (embedding local + insert Supabase)
+- lister les 50 derniers documents indexes
+- supprimer un document
+
+Mode actuel:
+- **manuel valide** (pas de scraping automatique des sites officiels)
+- recommande pour garder la qualite juridique/editoriale
+
 ### Rollback (si Node 20 ou les changements posent problème)
 
 #### 1) Revenir à l’ancien script (archive)
